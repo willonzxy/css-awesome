@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        @keyframes typing{
+            from{
+                width:0
+            }
+        }
+        @keyframes caret{
+            50%{
+                border-color: transparent;
+            }
+        }
+        h1{
+            position: relative;
+            width:7em;
+           /*  width:11ch; */
+            white-space: nowrap;
+            border-right: .01em solid;
+            overflow: hidden;
+            animation: typing 4s, caret 1s  infinite ;
+        }
+    </style>
+</head>
+<body>
+    <h1>12345678910</h1>
+</body>
+<script>
+    (function(win){
+        var nd_h1 = win.document.getElementsByTagName('h1')[0],
+            text_len = nd_h1.textContent.length;
+        nd_h1.style.cssText = `width:${text_len}ch;animation-timing-function:steps(${text_len}),steps(1)`;
+        /* steps函数，它可以传入两个参数，第一个是一个大于0的整数，他是将间隔动画等分成指定数目的小间隔动画，然后根据第二个参数来决定显示效果。
+            第二个参数(end,start)代表是在一帧的开始，还是末尾开始
+         */
+    })(this)
+</script>
+</html>
